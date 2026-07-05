@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruzalya · Digital Marketing | Black & Red</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0202;
+      font-family: 'Inter', sans-serif;
+      color: #ececec;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+      padding: 1rem;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #1a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #b91c1c; border-radius: 10px; }
+
+    .brochure {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #0a0101;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.9), 0 0 0 1px rgba(185, 28, 28, 0.25);
+    }
+
+    section {
+      padding: 4rem 3rem;
+      border-bottom: 1px solid rgba(185, 28, 28, 0.2);
+      transition: all 0.2s;
+    }
+
+    /* ----- HEADER ----- */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: #0a0101;
+      border-bottom: 1px solid rgba(185, 28, 28, 0.3);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .logo span { color: #b91c1c; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a {
+      color: #ececec;
+      text-decoration: none;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+      cursor: pointer;
+    }
+    .nav-links a:hover { color: #b91c1c; border-color: #b91c1c; }
+    .header-cta {
+      background: #b91c1c;
+      padding: 0.6rem 1.6rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      border: 1px solid #b91c1c;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .header-cta:hover { background: #8b1515; transform: scale(0.97); }
+
+    .hero {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      background: radial-gradient(ellipse at 80% 30%, #1f0808 0%, #030000 100%);
+      border-top: 1px solid rgba(185, 28, 28, 0.15);
+    }
+
+    .footer-section {
+      border-bottom: none;
+      background: #020000;
+      text-align: center;
+    }
+
+    h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+
+    h1 {
+      font-size: 4rem;
+      background: linear-gradient(135deg, #FFFFFF 30%, #E63535 85%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: #b91c1c;
+      border-radius: 3px;
+    }
+
+    .center-text h2:after { left: 50%; transform: translateX(-50%); }
+
+    .accent-red { color: #e33b3b; }
+
+    .brand-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b91c1c;
+      margin-bottom: 1rem;
+    }
+
+    .big-quote {
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: italic;
+      border-left: 4px solid #b91c1c;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      color: #dddddd;
+    }
+
+    .grid-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: rgba(15, 5, 5, 0.65);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(185, 28, 28, 0.35);
+      border-radius: 1.8rem;
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: #b91c1c;
+      transform: translateY(-5px);
+      background: #120808;
+      box-shadow: 0 20px 30px -12px rgba(185,28,28,0.25);
+    }
+    .service-icon { font-size: 2.2rem; color: #b91c1c; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .service-card p { color: #c7b5b5; font-size: 0.9rem; line-height: 1.5; }
+
+    .why-xynex {
+      background: linear-gradient(145deg, #0c0202 0%, #180707 100%);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border: 1px solid #b91c1c30;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #b91c1c;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 3rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      border: 1px solid #b91c1c;
+      margin-top: 1rem;
+      box-shadow: 0 6px 14px rgba(185,28,28,0.3);
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      background: #8b1515;
+      transform: scale(1.02);
+      border-color: #ff5e5e;
+      box-shadow: 0 12px 20px rgba(185,28,28,0.5);
+    }
+
+    .inline-icon { margin-right: 8px; }
+    .signature-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin: 2rem 0 0.5rem;
+    }
+    hr { border-color: #b91c1c30; margin: 1rem 0; }
+
+    .manifesto-line { font-size: 1.4rem; font-weight: 500; margin: 1rem 0; }
+    .divider-light {
+      height: 1px;
+      background: radial-gradient(circle, #b91c1c60, transparent);
+      margin: 1rem 0;
+    }
+    .global-icon { font-size: 1.2rem; color: #e63535; }
+
+    /* ----- ABOUT SHORT ----- */
+    .about-short {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-short p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #c7b5b5;
+    }
+
+    /* ----- CONTACT / LEAD FORM ----- */
+    .lead-form {
+      background: rgba(15, 5, 5, 0.7);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(185, 28, 28, 0.3);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      max-width: 700px;
+      margin: 2rem auto 0;
+      text-align: left;
+    }
+    .lead-form label {
+      display: block;
+      font-weight: 600;
+      margin: 1rem 0 0.3rem;
+      color: #dddddd;
+      font-size: 0.95rem;
+    }
+    .lead-form input, .lead-form select, .lead-form textarea {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(185, 28, 28, 0.4);
+      background: #0f0707;
+      color: #ececec;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.2s;
+      outline: none;
+    }
+    .lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus {
+      border-color: #b91c1c;
+      box-shadow: 0 0 0 3px rgba(185,28,28,0.2);
+    }
+    .lead-form textarea { min-height: 100px; resize: vertical; }
+    .lead-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .lead-form .full-width { grid-column: 1 / -1; }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 1.5rem;
+      width: 100%;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+    }
+    .whatsapp-btn:hover {
+      background: #1da85a;
+      transform: scale(1.02);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.4);
+    }
+    .whatsapp-btn i { font-size: 1.5rem; }
+
+    @media (max-width: 800px) {
+      section { padding: 2.5rem 1.5rem; }
+      .site-header { padding: 1rem 1.5rem; flex-direction: column; align-items: stretch; text-align: center; }
+      .nav-links { justify-content: center; flex-wrap: wrap; gap: 1.2rem; }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .big-quote { font-size: 1.2rem; }
+      .signature-quote { font-size: 1.4rem; }
+      .manifesto-line { font-size: 1.1rem; }
+      .lead-form .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem; }
+      .brochure { margin: 0; border-radius: 1.5rem; }
+      .site-header { padding: 0.8rem 1rem; }
+      .lead-form { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="brochure">
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="logo" onclick="window.location.reload();"><span>Ru</span>zalya</div>
+    <nav class="nav-links">
+      <a onclick="window.location.reload();">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="header-cta"><i class="fas fa-paper-plane inline-icon"></i>Let's talk</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="brand-tag"><i class="fas fa-crown"></i> Ruzalya · Digital Marketing</div>
+    <h1>We Don't Just Market Brands.<br>We Give Them a <span class="accent-red">Personality.</span></h1>
+    <div class="big-quote">"People don't fall in love with advertisements — they fall in love with stories."</div>
+    <p style="font-size: 1.2rem; max-width: 85%; margin-bottom: 1.5rem;">At Ruzalya, we believe stories shape empires. That's why we create brands impossible to ignore and campaigns that people actually remember. From local startups to established businesses, we help brands speak louder, look better, and grow faster.</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <a href="#contact" class="cta-button" style="background: transparent; border: 1px solid #b91c1c; color: #e63535;"><i class="fas fa-play-circle inline-icon"></i> See the impact</a>
+      <a href="#contact" class="cta-button"><i class="fas fa-chart-line inline-icon"></i> Start your story</a>
+    </div>
+    <div style="margin-top: 2.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.8;">
+      <span><i class="fas fa-globe-americas global-icon"></i> Global vision</span>
+      <span><i class="fas fa-fire global-icon"></i> Bold narratives</span>
+      <span><i class="fas fa-gem global-icon"></i> Legacy branding</span>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section>
+    <div style="text-align: center;" class="center-text">
+      <i class="fas fa-map-marked-alt" style="font-size: 2rem; color: #b91c1c; margin-bottom: 0.5rem; display: inline-block;"></i>
+      <h2>Creating Impact Across Borders</h2>
+      <p style="max-width: 750px; margin: 1rem auto 0; font-size: 1rem;">Creativity has no postcode, and neither do we. Our work travels across industries and countries, helping businesses build a digital presence that connects with audiences around the world.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+      <span><i class="fas fa-gem"></i> Luxury Retail</span>
+      <span><i class="fas fa-tshirt"></i> Fashion & Lifestyle</span>
+      <span><i class="fas fa-heartbeat"></i> Healthcare</span>
+      <span><i class="fas fa-industry"></i> Textiles</span>
+      <span><i class="fas fa-concierge-bell"></i> Service Brands</span>
+    </div>
+    <div class="why-xynex" style="margin-top: 2rem; text-align: center;">
+      <i class="fas fa-quote-left" style="color:#b91c1c; font-size: 1.8rem; opacity: 0.7;"></i>
+      <p style="font-size: 1.1rem; font-weight: 500;">"No matter where your audience is, we make your brand feel at home."</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div style="text-align: center;">
+      <i class="fas fa-cubes" style="font-size: 2rem; color: #b91c1c;"></i>
+      <h2>What We Bring to the Table</h2>
+      <p style="margin-bottom: 1rem;">Creative firepower + strategic intelligence</p>
+    </div>
+    <div class="grid-services">
+      <div class="service-card"><div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div><h3>SEO & Google Ads</h3><p>Data-driven search strategies & PPC campaigns that put you on top.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fab fa-meta"></i></div><h3>Meta Ads</h3><p>Facebook & Instagram campaigns built for engagement and conversion.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-pen-fancy"></i></div><h3>Branding & Design</h3><p>Logo, identity, print & digital design that tells your story.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-clapperboard"></i></div><h3>Video Production</h3><p>High-quality video content for social, web, and brand storytelling.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3><p>Fast, responsive websites & landing pages that convert.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-user-tie"></i></div><h3>Personal Branding</h3><p>Build your authority and presence as a thought leader.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-feather-pointed"></i></div><h3>Content Creation</h3><p>Copywriting, blogs, social posts & visual content that engages.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY Ruzalya -->
+  <section>
+    <div style="text-align: center;">
+      <i class="fas fa-gem" style="font-size: 2rem; color: #b91c1c;"></i>
+      <h2>Why Ruzalya?</h2>
+      <p style="max-width: 750px; margin: 0.5rem auto;">Because we don't believe in one-size-fits-all marketing.</p>
+    </div>
+    <div class="why-xynex">
+      <p style="font-size: 1rem; line-height: 1.5; text-align: center;">We mix creativity, strategy, and a little bit of bold thinking to build campaigns that stand out in crowded markets. Every brand has its own identity, and our job is to make sure the world notices it.</p>
+      <div style="text-align: center; margin: 1.5rem 0 0.5rem; font-weight: 700; font-size: 1.3rem;">✨ Your Brand Could Be the Next Success Story.</div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SHORT ========== -->
+  <section id="about" style="background: radial-gradient(circle at 30% 20%, #120404, #000000);">
+    <div class="about-short">
+      <i class="fas fa-info-circle" style="font-size: 2.5rem; color: #b91c1c; margin-bottom: 1rem; display: inline-block;"></i>
+      <h2>About Ruzalya</h2>
+      <p style="margin-top: 1.5rem;">
+        We are a boutique digital marketing agency based in Bahrain, built by creators, strategists, and storytellers. 
+        Our mission is simple: to help brands find their voice and amplify it across every channel. 
+        With a focus on authenticity, data-driven decisions, and bold creativity, we partner with businesses of all sizes — 
+        from local startups to global names — to build identities that last.
+      </p>
+      <p style="margin-top: 1rem; color: #b91c1c; font-weight: 600;">
+        <i class="fas fa-map-pin"></i> Al Hidd, Bahrain · <i class="fas fa-globe"></i> Global reach
+      </p>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section style="background: radial-gradient(circle at 20% 30%, #120404, #000000); text-align: center;">
+    <div>
+      <i class="fas fa-quote-right" style="color:#b91c1c; font-size: 2rem; margin-bottom: 1rem; display: inline-block;"></i>
+      <div class="manifesto-line">Some people see logos.</div>
+      <div class="manifesto-line"><span class="accent-red">We see legacies.</span></div>
+      <div class="manifesto-line">Some people create content.</div>
+      <div class="manifesto-line"><span class="accent-red">We create conversations.</span></div>
+      <div class="manifesto-line">Some people follow trends.</div>
+      <div class="manifesto-line"><span class="accent-red">We help create them.</span></div>
+      <div class="divider-light" style="width: 80px; margin: 1.8rem auto;"></div>
+      <div class="signature-quote">Ruzalya<br>From Ideas to Impact. Across Cities. Across Countries. Across the World. 🌍</div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT / LEAD FORM + WHATSAPP ========== -->
+  <section id="contact" class="footer-section" style="background: #020000;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <i class="fas fa-envelope-open-text" style="font-size: 2.2rem; color: #b91c1c; margin-bottom: 1rem; display: inline-block;"></i>
+      <h2>Let's Give Your Brand a Personality</h2>
+      <p style="margin-bottom: 1.5rem;">Fill in your details and we'll get back to you. Or click the WhatsApp button to share instantly.</p>
+
+      <!-- LEAD FORM -->
+      <form id="leadForm" class="lead-form">
+        <div class="form-row">
+          <div>
+            <label for="fullName"><i class="fas fa-user" style="color:#b91c1c; margin-right:6px;"></i> Full Name</label>
+            <input type="text" id="fullName" placeholder="Your full name" required />
+          </div>
+          <div>
+            <label for="companyName"><i class="fas fa-building" style="color:#b91c1c; margin-right:6px;"></i> Company Name</label>
+            <input type="text" id="companyName" placeholder="Your company / brand" />
+          </div>
+        </div>
+
+        <div>
+          <label for="serviceSelect"><i class="fas fa-cogs" style="color:#b91c1c; margin-right:6px;"></i> Service Interested In</label>
+          <select id="serviceSelect">
+            <option value="SEO & Google Ads">SEO & Google Ads</option>
+            <option value="Meta Ads">Meta Ads</option>
+            <option value="Branding & Design">Branding & Design</option>
+            <option value="Video Production">Video Production</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Personal Branding">Personal Branding</option>
+            <option value="Content Creation">Content Creation</option>
+            <option value="Other / Full Package">Other / Full Package</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="projectDesc"><i class="fas fa-pencil-alt" style="color:#b91c1c; margin-right:6px;"></i> Project Description</label>
+          <textarea id="projectDesc" placeholder="Tell us about your goals, audience, or any specific needs..."></textarea>
+        </div>
+
+        <!-- WhatsApp button inside form -->
+        <button type="button" id="whatsappBtn" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Share via WhatsApp
+        </button>
+        <p style="font-size:0.8rem; color:#888; margin-top:0.5rem; text-align:center;">
+          <i class="fas fa-lock" style="color:#b91c1c;"></i> Your details will be shared securely via WhatsApp.
+        </p>
+      </form>
+
+      <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; border-top: 1px solid rgba(185,28,28,0.2); padding-top: 2rem;">
+        <span><i class="fab fa-instagram"></i> @ruzalya</span>
+        <span><i class="fab fa-linkedin-in"></i> /ruzalya</span>
+        <span><i class="fas fa-globe"></i> ruzalya.com</span>
+      </div>
+      <hr style="margin: 2rem 0 1rem;">
+      <footer><p>© Ruzalya — From Ideas to Impact. Premium Branding Without Borders.</p></footer>
+    </div>
+  </section>
+</div>
+
+<!-- ========== JAVASCRIPT: WhatsApp share & smooth scroll ========== -->
+<script>
+  (function() {
+    // WhatsApp functionality
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const phoneNumber = '+97336835116';
+
+    function getFormData() {
+      const name = document.getElementById('fullName').value.trim() || 'Not provided';
+      const company = document.getElementById('companyName').value.trim() || 'Not provided';
+      const service = document.getElementById('serviceSelect').value;
+      const description = document.getElementById('projectDesc').value.trim() || 'No description provided';
+      return { name, company, service, description };
+    }
+
+    function buildWhatsAppMessage(data) {
+      const lines = [
+        '📌 *New Lead from Ruzalya Website*',
+        '',
+        '👤 *Name:* ' + data.name,
+        '🏢 *Company:* ' + data.company,
+        '🛠 *Service:* ' + data.service,
+        '📝 *Description:* ' + data.description,
+        '',
+        '— Sent via Ruzalya.com'
+      ];
+      return lines.join('\n');
+    }
+
+    function sendToWhatsApp() {
+      const data = getFormData();
+      const message = buildWhatsAppMessage(data);
+      const encoded = encodeURIComponent(message);
+      const url = 'https://wa.me/' + phoneNumber.replace(/\+/g, '') + '?text=' + encoded;
+      window.open(url, '_blank');
+    }
+
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', sendToWhatsApp);
+    }
+
+    // Prevent form submission
+    const form = document.getElementById('leadForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+      });
+    }
+
+    // Smooth scroll for nav links (optional, but works with #)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+  })();
+</script>
+
+<!-- small polish animations -->
+<style>
+  @keyframes subtleGlow {
+    0% { border-color: rgba(185,28,28,0.2); box-shadow: 0 0 0 0 rgba(185,28,28,0.1);}
+    100% { border-color: rgba(185,28,28,0.5); box-shadow: 0 0 0 2px rgba(185,28,28,0.15);}
+  }
+  .service-card:hover { animation: subtleGlow 0.3s ease; }
+  .cta-button { position: relative; overflow: hidden; }
+  .cta-button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s;
+  }
+  .cta-button:hover:after { left: 100%; }
+  .service-icon i { filter: drop-shadow(0 0 2px rgba(185,28,28,0.4)); }
+</style>
+</body>
+</html>
